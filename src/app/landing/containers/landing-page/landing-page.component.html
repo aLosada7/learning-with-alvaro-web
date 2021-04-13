@@ -1,0 +1,15 @@
+<section>
+    <tms-headline></tms-headline>
+</section>
+<section *ngIf="categories$ | async as categories" class="landing-section">
+    <div class="content-wrapper">
+        <div class="row">
+            <div *ngFor="let category of categories" class="col-sm">
+                <div class="card">
+                    <h5 class="card-header">{{ category.name }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

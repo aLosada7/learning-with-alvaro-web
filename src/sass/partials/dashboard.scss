@@ -1,0 +1,38 @@
+.menu-nav-wrapper {
+    padding: 0 8px;
+}
+
+.menu-nav-list {
+
+    .menu-nav-item, .subcategories-nav-list .subcategories-nav-item {
+        font-weight: bold;
+        padding-top: 8px;
+        cursor: pointer;
+    }
+
+    .menu-nav-item.active {
+        .menu-nav-category-title {
+            color: red;
+        }
+    }
+
+    .subcategories-nav-list {
+        padding-left: 16px;
+
+        .subcategories-nav-item.active {
+
+            .subcategories-nav-title {
+                color: red;
+            }
+        }
+    }
+
+    .menu-nav-category-title, .subcategories-nav-title {
+        color: #000;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+}

@@ -1,0 +1,8 @@
+<div class="auth-options">
+    <div [ngClass]="{'active': active === 'signup'}" [routerLink]="['/identity', 'signup']">
+        <h4 class="cursor sign-up-option">{{ 'AUTH.OPTIONS.SIGN-UP' | translate }}</h4>
+    </div>
+    <div [ngClass]="{'active': active !== 'signup'}" [routerLink]="['/identity', 'login']">
+        <h4 class="cursor login-option">{{ 'AUTH.OPTIONS.LOGIN' | translate }}</h4>
+    </div>
+</div>

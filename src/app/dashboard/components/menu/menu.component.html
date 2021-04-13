@@ -1,0 +1,23 @@
+<div class="menu-nav-wrapper">
+    <nav role="navigation" class="menu-nav" aria-label>
+        <ul class="menu-nav-list">
+            <li *ngFor="let category of categories" class="menu-nav-item"
+                [routerLink]="['/dashboard']"
+                [queryParams]="{category: category.categoryId}"
+                [ngClass]="{'active': category.categoryId === categorySelected.category}">
+                <a class="menu-nav-category-title">{{ category.name }}</a>
+                <ul *ngIf="category.subcategories" class="subcategories-nav-list">
+                    <li *ngFor="let subcategory of category.subcategories"
+                        class="subcategories-nav-item"
+                        (click)="handleSubcategoryNavigation($event)"
+                        [routerLink]="['/dashboard']"
+                        [queryParams]="{category: category.categoryId, subcategory: subcategory.subCategoryId}"
+                        [ngClass]="{'active': category.categoryId === categorySelected.category && subcategory.subCategoryId === categorySelected.subcategory}">
+                        <a class="subcategories-nav-title">{{ subcategory.name }}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+

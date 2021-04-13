@@ -1,0 +1,55 @@
+// forms
+fieldset {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $darkest-grey;
+    line-height: 1.7;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.btn {
+
+    &__highlight {
+        background-color: #2F7DB3;
+        color: #fff;
+        box-shadow: 0 4px 6px hsla(0, 0%, 0%, .2)
+    }
+
+    &__highlight:hover {
+        color: #fff;
+    }
+
+    &__highlight:active {
+        box-shadow: 0 1px 3px hsla(0, 0%, 0%, .2);
+    }
+}
+
+.submit .btn{
+    background: $primary-color;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px;
+    margin-top: 8px;
+}
+
+.feedback {
+
+    margin-top: .25rem;
+    font-size: 80%;
+
+    &__valid {
+        color: $green;
+    }
+
+    &__invalid {
+        color: $red;
+    }
+}

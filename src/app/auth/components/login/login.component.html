@@ -1,0 +1,20 @@
+<form id="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <fieldset>
+        <div class="field">
+            <label for="email" class="form-label">{{ 'AUTH.EMAIL' | translate }}:</label>
+            <input type="email" class="form-control form-control-lg" formControlName="email">
+            <div *ngIf="loginForm.get('email').errors?.email" class="feedback__invalid">{{ 'AUTH.INFO.EMAIL-NOT-VALID' | translate }}</div>
+        </div>
+        <div class="field">
+            <label for="password" class="form-label">{{ 'AUTH.PASSWORD' | translate }}:</label>
+            <input type="password" class="form-control form-control-lg" formControlName="password">
+        </div>
+        <div class="submit d-grid">
+            <button type="submit" class="btn">{{ 'AUTH.FORM.LOGIN' | translate }}</button>
+        </div>
+        <div class="forgotten-password">
+            <a [routerLink]="['/identity', 'forgotpassword']" class="forgotten-password__link">{{ 'AUTH.FORGOT-PASSWORD' | translate }}</a>
+        </div>
+    </fieldset>
+</form>
+

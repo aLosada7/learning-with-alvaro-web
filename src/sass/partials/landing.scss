@@ -1,0 +1,38 @@
+.headline-wrapper {
+    background-image: linear-gradient(0deg, hsla(0%, 0%, 0%, .55), hsla(0%, 0%, 0%, .55)), url('https://images.pexels.com/photos/4246102/pexels-photo-4246102.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    margin: 0;
+    padding: 0; /*if your want to padding */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+
+    .headline {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        padding: 20rem 0;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        color: #fff;
+
+        @media only screen and (max-width: $bp-phone) {
+            padding: 15rem 0;
+        }
+
+        .btn {
+            background: transparent;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 10px;
+            margin-top: 8px;
+        }
+    }
+}
+
+.content-wrapper {
+    padding: 3vw 4vw;
+}

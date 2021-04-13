@@ -1,0 +1,49 @@
+<ng-container *ngIf="!authResult">
+    <form id="sign-up-form" [formGroup]="signUpForm" (ngSubmit)="signUp()" >
+        <fieldset>
+            <div class="field">
+                <label for="email" class="form-label form-control-lg">{{ 'AUTH.EMAIL' | translate}}:</label>
+                <input type="email" class="form-control" formControlName="email">
+                <small>{{ 'AUTH.INFO.SIGNUP-EMAIL-CONFIRMATION' | translate }}</small>
+                <div *ngIf="signUpForm.get('email').errors?.email" class="feedback__invalid">{{ 'AUTH.INFO.EMAIL-NOT-VALID' | translate}}</div>
+            </div>
+            <div class="field">
+                <label for="name" class="form-label form-control-lg">{{ 'AUTH.NAME' | translate}}:</label>
+                <input type="text" class="form-control" formControlName="name">
+                <div *ngIf="signUpForm.get('name').errors?.required && signUpForm.get('surnames').touched"
+                class="feedback__invalid">
+                {{ 'AUTH.INFO.NAME-REQUIRED' | translate}}
+                </div>
+            </div>
+            <div class="field">
+                <label for="surnames" class="form-label form-control-lg">{{ 'AUTH.SURNAMES' | translate}}:</label>
+                <input type="text" class="form-control" formControlName="surnames">
+                <div *ngIf="signUpForm.get('surnames').errors?.required && signUpForm.get('surnames').touched"
+                class="feedback__invalid">
+                {{ 'AUTH.INFO.SURNAMES-REQUIRED' | translate}}
+                </div>
+            </div>
+            <div class="field">
+                <label for="password" class="form-label form-control-lg">{{ 'AUTH.PASSWORD' | translate}}:</label>
+                <input type="password" class="form-control" formControlName="password">
+                <div *ngIf="signUpForm.get('password').errors?.password" class="feedback__invalid">{{ 'AUTH.INFO.PASSWORD-REQUIREMENTS' | translate}}</div>
+            </div>
+            <div class="field">
+                <label for="repeatedPassword" class="form-label form-control-lg">{{ 'AUTH.REPEATED-PASSWORD' | translate}}:</label>
+                <input type="password" class="form-control" formControlName="repeatedPassword">
+                <div
+                    *ngIf="!signUpForm.get('password').errors?.password && signUpForm.hasError('notSame')"
+                    class="feedback__invalid">
+                    {{ 'AUTH.INFO.NO-PASSWORD-MATCH' | translate}}
+                </div>
+            </div>
+            <div class="submit d-grid">
+                <button type="submit" class="btn">{{ 'AUTH.FORM.SIGN-UP' | translate}}</button>
+            </div>
+        </fieldset>
+    </form>
+</ng-container>
+
+<ng-container *ngIf="authResult">
+    <p>{{ 'AUTH.SIGN-UP-MESSAGE' | translate }}</p>
+</ng-container>

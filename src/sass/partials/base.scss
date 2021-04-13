@@ -15,11 +15,29 @@ body {
     margin: 0;
     font-size: 16px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
+    background-color: $background-color;
 }
 
 .cursor {
     cursor: pointer;
+}
+
+.container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    align-items: stretch;
+    padding: 12px;
+
+    @media only screen and (max-width: $bp-tablet) {
+        display: block;
+        padding: 0px;
+        text-align: center;
+    }
 }
 
 // titles
@@ -45,6 +63,26 @@ h4 {
     font-size: 14px;
 }
 
+.card-title {
+    padding: 16px;
+}
+
+.rounded-input {
+    padding: 16px;
+    border: 1px solid $grey;
+    border-radius: 5px;
+    min-width: 150px;
+}
+
+.backgrounded-input {
+    background-color: $light-grey;
+}
+
+// loader
+tms-loading {
+    padding: 20rem;
+}
+
 // routerlink focus outline
 *[ng-reflect-router-link]:focus {
     outline: none;
@@ -58,40 +96,4 @@ a {
 // list
 li {
     list-style-type: none;
-}
-
-.nav {
-    padding: 2rem;
-
-    .nav-list {
-        flex-direction: row;
-        display: flex;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        justify-content: center;
-
-        .nav-item {
-            margin: 0 8px;
-        }
-    }
-}
-
-fieldset {
-    margin: 0 auto;
-    padding: 0;
-    border: 0;
-    padding-bottom: 50px;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
 }

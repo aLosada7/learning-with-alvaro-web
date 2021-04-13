@@ -1,0 +1,9 @@
+<header [ngClass]="{'header-backgrounded': !showNavBackground()}">
+    <div class="toolbar-wrapper">
+        <tms-toolbar id="tms-toolbar" *ngIf="showNav()" [loggedIn]="loggedIn$ | async"></tms-toolbar>
+    </div>
+</header>
+
+<div class="layout-content">
+    <router-outlet></router-outlet>
+</div>

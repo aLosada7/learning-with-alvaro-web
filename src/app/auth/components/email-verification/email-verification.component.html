@@ -1,0 +1,16 @@
+
+<ng-container *ngIf="!authResult">
+    <h3>{{ 'AUTH.AUTH-COMPLETE' | translate }}</h3>
+    <div class="row">
+        <p>{{ 'AUTH.WELCOME-MESSAGE' | translate}}</p>
+    </div>
+    <fieldset>
+        <div class="submit d-grid">
+            <button class="btn" type="button" [routerLink]="['/']">{{ 'AUTH.FORM.GO-TO-MAIN' | translate }}</button>
+        </div>
+    </fieldset>
+</ng-container>
+<ng-container *ngIf="authResult">
+    <h3>{{ 'ERROR.SOMETHING-WENT-WRONG' | translate }}</h3>
+</ng-container>
+

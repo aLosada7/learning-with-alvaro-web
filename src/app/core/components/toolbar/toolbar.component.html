@@ -1,0 +1,25 @@
+<nav role="navigation" class="navbar navbar-expand-md" aria-label="Toolbar">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="logo-company" href="/"><h2>timematters!</h2></a>
+        <button class="navbar__icon navbar__icon__mobile login-link-mobile" type="button" data-bs-toggle="collapse" [routerLink]="['identity', 'login']" aria-label="Auth navigation">
+            <span class="bi bi-person"></span>
+        </button>
+
+        <div class="collapse navbar-collapse navbar__items" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li *ngIf="!loggedIn" class="nav-item">
+                    <a class="nav-link login-link" [routerLink]="['identity', 'login']">Sign In</a>
+                </li>
+                <li *ngIf="loggedIn" class="nav-item">
+                    <a class="nav-link" href="#">My account</a>
+                </li>
+                <li *ngIf="loggedIn" class="nav-item active">
+                    <a class="nav-link" href="#">Log out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

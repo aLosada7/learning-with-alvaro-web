@@ -1,5 +1,4 @@
-import 'jest-preset-angular/setup-jest';
-import 'hammerjs';
+import 'jest-preset-angular';
 
 Object.defineProperty(window, 'CSS', {value: null});
 Object.defineProperty(window, 'getComputedStyle', {

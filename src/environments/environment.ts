@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://randomMockApiInventedByMe.com'
+  apiUrl: 'http://localhost:5000'
 };
 
 /*

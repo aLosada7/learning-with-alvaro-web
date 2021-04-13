@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { Exercise1PageComponent } from './exercises/containers/exercise1-page/exercise1-page.component';
-import { Exercise2PageComponent } from './exercises/containers/exercise2-page/exercise2-page.component';
-
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'exercise1',
+    redirectTo: 'landing',
     pathMatch: 'full'
   },
-  { path: 'exercise1', component: Exercise1PageComponent },
-  { path: 'exercise2', component: Exercise2PageComponent },
+  { path: 'landing', loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule) },
+  { path: 'identity', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+  { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }
 ];
 
 @NgModule({

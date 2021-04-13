@@ -1,0 +1,13 @@
+<div class="container">
+    <ng-container *ngFor="let step of steps; let i = index">
+        <div class="step" [ngClass]="{'completed': i < actual, 'active': i == actual}">
+            <div class="v-stepper">
+                <div class="circle"></div>
+                <div *ngIf="i != steps.length - 1" class="line"></div>
+            </div>
+            <div class="content">
+                {{ step }}
+            </div>
+        </div>
+    </ng-container>
+</div>

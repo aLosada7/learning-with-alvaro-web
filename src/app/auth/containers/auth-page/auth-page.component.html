@@ -1,0 +1,36 @@
+<section>
+    <div class="container container-fluid auth-container">
+        <h2><a [routerLink]="['']" class="auth-logo">timematters!</a></h2>
+        <div class="card">
+            <div class="card-body" *ngIf="!(authLoading$ | async) else loading">
+                <tms-auth-options
+                [hidden]="(identitySelected$ | async) === identityEnum.EmailVerification || (identitySelected$ | async) === identityEnum.CreatePassword"
+                [active]="(identitySelected$ | async)" (changeOption)="changeOption($event)"></tms-auth-options>
+                <h3 [hidden]="(identitySelected$ | async) === identityEnum.EmailVerification">{{ 'IDENTITY.' + (identitySelected$ | async) | uppercase | translate}}</h3>
+                <div *ngIf="error$ | async" class="alert alert-danger" role="alert">{{ (error$ | async) | translate }}</div>
+                <tms-login
+                    [hidden]="(identitySelected$ | async) !== identityEnum.Login"
+                    (submitted)="submitted(identityEnum.Login, $event)"></tms-login>
+                <tms-sign-up
+                    [hidden]="(identitySelected$ | async) !== identityEnum.SignUp"
+                    [authResult]="(authResult$ | async)"
+                    (submitted)="submitted(identityEnum.SignUp, $event)"></tms-sign-up>
+                <tms-email-verification
+                    [hidden]="(identitySelected$ | async) !== identityEnum.EmailVerification"
+                    [authResult]="(authResult$ | async)"></tms-email-verification>
+                <tms-password-reset
+                    [hidden]="(identitySelected$ | async) !== identityEnum.ForgotPassword"
+                    [authResult]="(authResult$ | async)"
+                    (submitted)="submitted(identityEnum.ForgotPassword, $event)"></tms-password-reset>
+                <tms-password-create
+                    [hidden]="(identitySelected$ | async) !== identityEnum.CreatePassword"
+                    [authResult]="(authResult$ | async)"
+                    (submitted)="submitted(identityEnum.CreatePassword, $event)"></tms-password-create>
+            </div>
+            <ng-template #loading>
+                <tms-loading class="loader"></tms-loading>
+            </ng-template>
+        </div>
+    </div>
+</section>
+
